@@ -13,8 +13,12 @@ import math
 CONST_ABSOLUTE = 1e-07
 
 
-def value_y():
+def value_x(x=0.35):
     return math.log(math.sqrt((1 + 0.35) / (1 - 0.35)))
+
+
+def value_y(x=1):
+    return math.pow(3, x)
 
 
 def sum_1():
@@ -55,7 +59,7 @@ def compare(x, y):
 
 
 if __name__ == '__main__':
-    th1 = Thread(target=compare(sum_1(), value_y()))
+    th1 = Thread(target=compare(sum_1(), value_x()))
     th1.start()
     th2 = Thread(target=compare(sum_2(), value_y()))
     th2.start()
